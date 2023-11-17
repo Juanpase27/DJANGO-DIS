@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* Establecer el tamaño del div */
+      .mi-div {
+        width: 50%;
+        /* Otros estilos opcionales */
+
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+
+    {% load static %}
+
+    {% block title %}
+      Sitios de Interes
+    {% endblock %}
+
+    {% block content %}
+      <h2>Mapa</h2>
+      <div class="mi-div">
+        {{ map|safe }}
+        <hr />
+        <ul>
+          {% for loc in locations %}
+            <li>{{ loc.name }} ( {{ loc.address }} )</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endblock %}
+    <br>
+    https://api.openweathermap.org/data/2.5/weather?lat=4.6486206&lon=-74.2726165&appid=626901f2caa37bf4341f4bfd6a505f95&units=metric&lang=es&country=co
+  </body>
+</html>
